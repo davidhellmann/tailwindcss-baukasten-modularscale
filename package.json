@@ -3,7 +3,7 @@
   "version": "2.0.1",
   "description": "Modular scale plugin for TailwindCSS.",
   "main": "index.js",
-  "repository": "https://github.com/davidhellmann/tailwindcss-modularscale",
+  "repository": "https://github.com/davidhellmann/tailwindcss-baukasten-modularscale",
   "author": "David Hellmann <david@hellmann.io> - Forked from: Jaggy Gauran jaggy@artisan.studio",
   "license": "MIT",
   "keywords": [
