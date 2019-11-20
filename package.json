@@ -1,5 +1,5 @@
 {
-  "name": "tailwindcss-modularscale-2",
+  "name": "tailwindcss-baukasten-modularscale",
   "version": "2.0.0",
   "description": "Modular scale plugin for TailwindCSS.",
   "main": "index.js",
