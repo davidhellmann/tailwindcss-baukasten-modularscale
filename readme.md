@@ -8,10 +8,10 @@ Modular scale is used in typography as a sequence of text sizes are harmonious t
 
 ```sh
 # NPM
-npm install --save-dev tailwindcss-modularscale
+npm install --save-dev tailwindcss-baukasten-modularscale
 
 # Yarn
-yarn add --dev tailwindcss-modularscale
+yarn add --dev tailwindcss-baukasten-modularscale
 ```
 
 ## Usage
@@ -22,7 +22,7 @@ module.exports = {
   // ...
 
   plugins: [
-    require('tailwindcss-modularscale')()
+    require('tailwindcss-baukasten-modularscale')()
   ],
 }
 ```
@@ -30,31 +30,72 @@ module.exports = {
 The default configuration:
 ```js
 {
-  sizes: [
-    { size: 'sm', value: -1 },
-    { size: 'base', value: 0 },
-    { size: 'lg', value: 1 },
-    { size: 'xl', value: 2 },
-    { size: '2xl', value: 3 },
-    { size: '3xl', value: 4 },
-    { size: '4xl', value: 5 }
+  sizesMobile = [
+      { size: '-2--mobile', value: -2 },
+      { size: '-1--mobile', value: -1 },
+      { size: '0--mobile', value: 0 },
+      { size: '1--mobile', value: 1 },
+      { size: '2--mobile', value: 2 },
+      { size: '3--mobile', value: 3 },
+      { size: '4--mobile', value: 4 },
+      { size: '5--mobile', value: 5 },
+      { size: '6--mobile', value: 6 },
+      { size: '7--mobile', value: 7 },
+      { size: '8--mobile', value: 8 },
+      { size: '9--mobile', value: 9 },
   ],
-  base:  16,
-  ratio: 1.333, // Perfect Fourth
-  unit: 'px',
+  sizesDesktop = [
+      { size: '-2', value: -2 },
+      { size: '-1', value: -1 },
+      { size: '0', value: 0 },
+      { size: '1', value: 1 },
+      { size: '2', value: 2 },
+      { size: '3', value: 3 },
+      { size: '4', value: 4 },
+      { size: '5', value: 5 },
+      { size: '6', value: 6 },
+      { size: '7', value: 7 },
+      { size: '8', value: 8 },
+      { size: '9', value: 9 },
+  ],
+  baseMobile = 16,
+  ratioMobile = 1.1,
+  unitMobile = 'px',
+  baseDesktop = 20,
+  ratioDesktop = 1.25,
+  unitDesktop = 'px',
 }
 ```
 
 The generated code will use `.ms-` to avoid conflicts with the `textSize` utilities.
 
 ```css
-.ms-sm   { font-size: 12px; }
-.ms-base { font-size: 16px; }
-.ms-lg   { font-size: 21px; }
-.ms-xl   { font-size: 28px; }
-.ms-2xl  { font-size: 38px; }
-.ms-3xl  { font-size: 51px; }
-.ms-4xl  { font-size: 67px; }
+.ms--2--mobile      { font-size: 13px; }
+.ms--1--mobile      { font-size: 15px; }
+.ms-0--mobile       { font-size: 16px; }
+.ms-1--mobile       { font-size: 18px; }
+.ms-2--mobile       { font-size: 20px; }
+.ms-3--mobile       { font-size: 22px; }
+.ms-4--mobile       { font-size: 24px; }
+.ms-5--mobile       { font-size: 27px; }
+.ms-6--mobile       { font-size: 30px; }
+.ms-7--mobile       { font-size: 33px; }
+.ms-8--mobile       { font-size: 36px; }
+.ms-9--mobile       { font-size: 40px; }
+
+
+.ms--2      { font-size: 13px; }
+.ms--1      { font-size: 16px; }
+.ms-0       { font-size: 20px; }
+.ms-1       { font-size: 25px; }
+.ms-2       { font-size: 31px; }
+.ms-3       { font-size: 39px; }
+.ms-4       { font-size: 49px; }
+.ms-5       { font-size: 61px; }
+.ms-6       { font-size: 76px; }
+.ms-7       { font-size: 95px; }
+.ms-8       { font-size: 119px; }
+.ms-9       { font-size: 148px; }
 ```
 
 ### Custom configuration
@@ -63,14 +104,15 @@ module.exports = {
   // ...
 
   plugins: [
-    require('tailwindcss-modularscale')({
-      sizes: [
-        { size: 'base', value: 0 },
-        { size: 'lg', value: 1 },
-      ],
-      base:  1,
-      ratio: 1.2,
-      unit: 'rem',
+    require('tailwindcss-baukasten-modularscale')({
+      sizesMobile: [],
+      sizesDesktop: [],
+      baseMobile:  1,
+      ratioMobile: 1.2,
+      unitMobile: 'rem',
+      baseDesktop:  1,
+      ratioDesktop: 1.2,
+      unitDesktop: 'rem',
     })
   ],
 }
@@ -82,16 +124,11 @@ module.exports = {
   // ...
 
   plugins: [
-    require('tailwindcss-modularscale')({
-      base:     16,
-      ratio:    1.333,
+    require('tailwindcss-baukasten-modularscale')({
+      baseMobile:     16,
+      ratioMobile:    1.333,
       variants: ['responsive'],
     })
   ],
 }
 ```
-
-
-## Limitations
-
-As of now, this plugin only supports one base size. I'm still not sure what's the best utility class if I were to support multiple base sizes.
